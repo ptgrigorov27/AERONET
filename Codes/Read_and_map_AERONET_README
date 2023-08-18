@@ -1,0 +1,45 @@
+# Read and Map AERONET
+
+The purpose of this code is to read and map AERONET data directly from AERONET's web services. Such data includes
+Aerosol Optical Depth (AOD) measurements taken with different wavelengths, as well as Angstrom Exponent parameters. Different
+parameters can be specified by user such as geographical bounds, daily/hourly averages, wavelength, time frame, etc.
+The output of the code is geographical maps with circle markers and colorbar representing the average aerosol parameters 
+at a given day or hour. The main use of this tool is to track the movement and density of aerosols over time. This tool
+was first deployed in June 2023 in mapping the aerosols produced by the Canadian wildfires. Users also have the opportunity
+to save and download the output maps as an image file at the end.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Example 1](#example-1)
+  - [Example 2](#example-2)
+- [Features](#features)
+- [How It Works](#how-it-works)
+- [Contributing](#contributing)
+- [Acknowledgments](#acknowledgments)
+
+## Getting Started
+
+Running this code is straightforward. The only requirements are having the means to run a Python notebook file
+(.ipynb). This can be done either in Google Colab, if the user has a Google account. It can also be done locally on
+Jupyter Notebook, which requires installation of Anaconda: https://www.anaconda.com/
+
+### Prerequisites
+
+There is a list of libraries that need to be installed before running the code. Those include: cartopy, beautifulsoup4,
+shapely, requests, and geopandas. All other libraries used are already installed on Google Colab/Anaconda by default.
+Note that the exclamation point is not required when installing through Anaconda command prompt.
+
+!pip install cartopy
+!pip install --no-binary shapely shapely --force
+!pip install beautifulsoup4
+!pip install requests
+!pip install geopandas
+
+The Cartopy package is designed to make it easy to draw maps for data analysis and visualisation. The shapely package is 
+useful for manipulation of planar geometric objects in order to create different map projections. The two projections used
+by this tool are PlateCarree and Orthographic. The beautifulsoup4 package provides web scraping capabilities, where data
+from a webpage can be read into "soup" file that can be later converted to a dataframe.
